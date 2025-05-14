@@ -1,0 +1,25 @@
+meta {
+  name: PostAnswer
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://localhost:44381/api/Survey/answer
+  body: json
+  auth: inherit
+}
+
+body:json {
+  [
+    {
+      "answer": "Syauqi2",
+      "questionId": 1
+    },
+    {
+      "answer": "33",
+      "questionId": 2
+    }
+  ]
+  
+}

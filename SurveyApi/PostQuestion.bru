@@ -1,0 +1,18 @@
+meta {
+  name: PostQuestion
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://localhost:44381/api/Survey/question
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "question": "Where do you live?"
+    }
+  
+}
