@@ -12,5 +12,6 @@
         public int Id { get; set; }
         public string SubmitDateTime { get; set; }
         public List<SurveyAnswer> Answers { get; set; }
+        public int TemplateId { get; set; }
     }
 }

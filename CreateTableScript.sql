@@ -16,3 +16,8 @@ CREATE TABLE SurveysAnswer (
     FOREIGN KEY (question_id) REFERENCES SurveyQuestion(id),
     FOREIGN KEY (surveys_id) REFERENCES Surveys(id)
 );
+
+CREATE TABLE SurveyTemplate (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    name VARCHAR(255) NOT NULL
+);

@@ -31,6 +31,13 @@ namespace SurveyWeb.Controllers
             var surveys = await _surveyServices.GetSurveysAsync();
             return Ok(surveys);
         }
+        [HttpGet]
+        [Route("question/{templateid}")]
+        public async Task<ActionResult<List<SurveyQuestion>>> GetQuestionByTemplateId(int templateid)
+        {
+            var surveys = await _surveyServices.GetQuestionByTemplateId(templateid);
+            return Ok(surveys);
+        }
 
         [HttpPost]
         [Route("question")]
@@ -41,10 +48,10 @@ namespace SurveyWeb.Controllers
         }
 
         [HttpPost]
-        [Route("answer")]
-        public async Task<ActionResult<int>> PostAnswer([FromBody] List<SurveyAnswer> answers)
+        [Route("answer/{templateid}")]
+        public async Task<ActionResult> PostAnswer([FromBody] List<SurveyAnswer> answers, int templateid)
         {
-            var surveys = await _surveyServices.SubmitSurvey(answers);
+            var surveys = await _surveyServices.SubmitSurvey(answers, templateid);
             return Ok(surveys);
         }
 
@@ -64,5 +71,28 @@ namespace SurveyWeb.Controllers
             return Ok(surveys);
         }
 
+        [HttpGet]
+        [Route("template")]
+        public async Task<ActionResult> GetTemplate()
+        {
+            var surveys = await _surveyServices.GetTemplate();
+            return Ok(surveys);
+        }
+
+        [HttpGet]
+        [Route("questionbytemplate/{id}")]
+        public async Task<ActionResult> GetQuestionByTemplate(int id)
+        {
+            var surveys = await _surveyServices.GetQuestionByTemplate(id);
+            return Ok(surveys);
+        }
+
+        [HttpPost]
+        [Route("template")]
+        public async Task<ActionResult<int>> CreateTemplate([FromBody] SurveyTemplate template)
+        {
+            var surveys = await _surveyServices.CreateTemplate(template);
+            return Ok(surveys);
+        }
     }
 }
